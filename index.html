@@ -50,3 +50,136 @@
   h1 .grad{background:linear-gradient(90deg,var(--p1),var(--p2),var(--p3)); -webkit-background-clip:text; background-clip:text; color:transparent;}
   .hero p.sub{color:var(--dim); max-width:540px; font-size:16px; margin-bottom:32px;}
   .ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{font-family:var(--sans); font-weight:700; font-size:14px; padding:13px 24px; border-radius:12px; transition:all .2s;}
+  .btn.primary{background:linear-gradient(90deg,var(--p1),var(--p2)); color:#fff; border:none;}
+  .btn.primary:hover{transform:translateY(-2px); box-shadow:0 14px 34px -10px rgba(124,77,255,.6); text-decoration:none;}
+  .btn.ghost{color:var(--text); background:var(--panel); border:1px solid var(--line); backdrop-filter:blur(10px);}
+  .btn.ghost:hover{border-color:var(--p3); text-decoration:none; transform:translateY(-2px);}
+
+  section{padding:64px 0;}
+  .section-head{display:flex; align-items:baseline; gap:12px; margin-bottom:32px;}
+  .section-head .tag{font-family:var(--mono); font-size:12px; color:var(--p3);}
+  .section-head h2{font-size:25px; font-weight:800;}
+
+  .project{
+    background:var(--panel); backdrop-filter:blur(14px); border:1px solid var(--line); border-radius:20px;
+    margin-bottom:26px; overflow:hidden; transition:transform .25s, border-color .25s;
+  }
+  .project:hover{transform:translateY(-4px);}
+  .project.a:hover{border-color:var(--p1);}
+  .project.b:hover{border-color:var(--p2);}
+  .p-head{padding:24px 26px 16px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;}
+  .p-head h3{font-size:19px; font-weight:800; margin-bottom:8px;}
+  .p-head p{color:var(--dim); font-size:14px; max-width:540px;}
+  .badge{font-family:var(--mono); font-size:11px; padding:5px 13px; border-radius:100px; font-weight:600;}
+  .badge.a{color:var(--p1); background:rgba(124,77,255,.15);}
+  .badge.b{color:var(--p2); background:rgba(255,93,162,.15);}
+  .stack{display:flex; gap:8px; flex-wrap:wrap; padding:0 26px 18px;}
+  .chip{font-family:var(--mono); font-size:11px; color:var(--dim); background:rgba(255,255,255,.05); padding:5px 11px; border-radius:8px;}
+  .p-body{padding:0 26px 26px;}
+  .p-body ul{padding-left:18px; color:var(--dim); font-size:14px; margin-bottom:16px;}
+  .p-body li{margin-bottom:7px;}
+  pre{background:rgba(0,0,0,.35); border:1px solid var(--line); border-radius:12px; padding:16px; overflow-x:auto; font-family:var(--mono); font-size:12px; color:var(--dim); margin-bottom:16px;}
+  pre .k{color:var(--p3); font-weight:700;}
+  .p-links a{font-family:var(--mono); font-size:12.5px; font-weight:600;}
+
+  .skill-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:14px;}
+  .skill{background:var(--panel); backdrop-filter:blur(10px); border:1px solid var(--line); border-radius:14px; padding:16px;}
+  .skill .name{font-family:var(--mono); font-size:12.5px; font-weight:600; margin-bottom:10px;}
+  .skill .lvl{height:5px; background:rgba(255,255,255,.08); border-radius:3px; overflow:hidden;}
+  .skill .lvl i{display:block; height:100%; border-radius:3px; background:linear-gradient(90deg,var(--p1),var(--p2),var(--p3));}
+
+  footer{padding:70px 0 90px; text-align:center;}
+  footer h2{font-size:26px; font-weight:800; margin-bottom:12px;}
+  footer p{color:var(--dim); margin-bottom:28px;}
+  footer .links{display:flex; justify-content:center; gap:16px; font-size:13.5px; font-weight:600;}
+  footer .links a{padding:11px 20px; border:1px solid var(--line); background:var(--panel); backdrop-filter:blur(10px); border-radius:10px; color:var(--text);}
+  footer .links a:hover{border-color:var(--p3); text-decoration:none;}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><div class="brand">✦ Portfolio</div><div class="links"><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></div></nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>Open to Network / IT / AI-Security roles</div>
+    <h1>Building <span class="grad">AI-driven</span> detection &amp; defense tooling.</h1>
+    <p class="sub">6+ years across systems support, infrastructure, and troubleshooting — now focused on applying machine learning to network anomaly detection and LLM application security.</p>
+    <div class="ctas">
+      <a class="btn primary" href="#projects">View projects</a>
+      <a class="btn ghost" href="https://github.com/cyabdul001/portfolio" target="_blank">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="section-head"><span class="tag">01</span><h2>Projects</h2></div>
+
+    <div class="project a">
+      <div class="p-head">
+        <div><h3>AI Network Anomaly Detector</h3><p>Unsupervised ML model that baselines normal network traffic and flags outliers in real time.</p></div>
+        <span class="badge a">Blue Team</span>
+      </div>
+      <div class="stack"><span class="chip">Python</span><span class="chip">scikit-learn</span><span class="chip">Isolation Forest</span></div>
+      <div class="p-body">
+        <ul>
+          <li>Trains an Isolation Forest on simulated baseline traffic.</li>
+          <li>Flags anomalies like automated Nmap sweeps and exfiltration spikes.</li>
+          <li>Prints a SOC-style alert log with simulated auto-block action.</li>
+        </ul>
+        <pre>$ python defender.py
+[10:42:01] [PASS] Standard Web Browsing behaves normally
+[10:42:01] <span class="k">[ALERT]</span> Automated Nmap Scan detected</pre>
+        <div class="p-links"><a href="https://github.com/cyabdul001/portfolio/tree/main/project1-ai-defender" target="_blank">Source →</a></div>
+      </div>
+    </div>
+
+    <div class="project b">
+      <div class="p-head">
+        <div><h3>LLM Prompt-Injection Auditor</h3><p>Offense/defense tool testing LLM apps against prompt injection (OWASP Top 10 for LLMs).</p></div>
+        <span class="badge b">Red Team</span>
+      </div>
+      <div class="stack"><span class="chip">Python</span><span class="chip">Regex</span></div>
+      <div class="p-body">
+        <ul>
+          <li>Runs jailbreak payloads against a target input handler.</li>
+          <li>Gateway matches known-bad patterns and blocks them before reaching the model.</li>
+          <li>Outputs a pass/fail audit log per test case.</li>
+        </ul>
+        <pre>$ python auditor.py
+[Test #2] "Ignore previous instructions..."
+<span class="k">[SECURE]</span> Attack Mitigated</pre>
+        <div class="p-links"><a href="https://github.com/cyabdul001/portfolio/tree/main/project2-ai-attacker" target="_blank">Source →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="section-head"><span class="tag">02</span><h2>Skills</h2></div>
+    <div class="skill-grid">
+      <div class="skill"><div class="name">Network Troubleshooting</div><div class="lvl"><i style="width:90%"></i></div></div>
+      <div class="skill"><div class="name">Systems Administration</div><div class="lvl"><i style="width:85%"></i></div></div>
+      <div class="skill"><div class="name">Python</div><div class="lvl"><i style="width:70%"></i></div></div>
+      <div class="skill"><div class="name">Machine Learning Basics</div><div class="lvl"><i style="width:55%"></i></div></div>
+      <div class="skill"><div class="name">Network Security</div><div class="lvl"><i style="width:75%"></i></div></div>
+      <div class="skill"><div class="name">LLM / AI Security</div><div class="lvl"><i style="width:50%"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Let's talk</h2>
+    <p>Open to Network Engineer, IT, and AI-security-adjacent roles.</p>
+    <div class="links">
+      <a href="mailto:cyber.abdul001@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/mohammed-mateen-240959230/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/cyabdul001" target="_blank">GitHub</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
